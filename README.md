@@ -1,7 +1,7 @@
 
 # TLCP-EPE
 ## Project Introduction  
-**TLCP-EPE** This study proposes a TLCP-EPE framework, which is capable of qualitatively predicting protein expression levels in E. coli from the perspectives of proteins, and the joint perception of codons and proteins..
+**TLCP-EPE** This study proposes a TLCP-EPE framework, which is capable of qualitatively predicting protein expression levels in E. coli from the perspectives of proteins, and the joint perception of codons and proteins.
 ![TLCP-EPE](https://github.com/ArtBioDesign/TLCP-EPE/blob/main/TLCP-EPE.PNG) 
 
 ## Installation
@@ -23,6 +23,6 @@ pip install -r requirements.txt
     ```
 - **Step 3:** Checkpoint prediction based on TLCP-EPE
     ```shell
-        python DLs/test.py 
+        python DLs/inference.py 
     ```
     
