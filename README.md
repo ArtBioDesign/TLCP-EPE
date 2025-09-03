@@ -20,6 +20,8 @@ pip install -r requirements.txt
     Download the following model checkpoints and place them in the appropriate directories:
     TLCP-EPE Main Model: 
         ~/TLCP-EPE/DLs/BiGRU-Attention-MLP/TLCP-EPE-checkpoints/;
+    CaLM Weights:
+        ~TLCP-EPE/DLs/pretrain_codon/;
     Protein PLM (ProtT5) & Codon PLM (CALM) Fine-tuned Weights:
         Place under ~/TLCP-EPE/data/saved_models_*/ as specified in config.py
 - **Step 2:** 
