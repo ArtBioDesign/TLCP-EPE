@@ -3,7 +3,7 @@
 ## 🧬 Project Introduction
 
 **TLCP-EPE** is a deep learning framework designed to **predict protein expression levels in *E. coli*** from both **codon usage** and **protein sequence** perspectives. The model integrates protein language models (PLMs) and codon-aware representations with a BiGRU-Attention-MLP architecture for accurate and interpretable predictions.  
-![TLCP-EPE](https://github.com/editSeqDesign/AutoPMD/blob/main/img/home.png) 
+![TLCP-EPE](https://github.com/ArtBioDesign/TLCP-EPE/blob/main/image/TLCP-EPE.PNG) 
 
 ## Installation
 ### python packages
@@ -19,7 +19,7 @@ pip install -r requirements.txt
 - **Step 1:** 
     Download the following model checkpoints and place them in the appropriate directories:
     TLCP-EPE Main Model: 
-        ~/TLCP-EPE/DLs/BiGRU-Attention-MLP/TLCP-EPE-checkpoints/
+        ~/TLCP-EPE/DLs/BiGRU-Attention-MLP/TLCP-EPE-checkpoints/;
     Protein PLM (ProtT5) & Codon PLM (CALM) Fine-tuned Weights:
         Place under ~/TLCP-EPE/data/saved_models_*/ as specified in config.py
 - **Step 2:** 
