@@ -16,7 +16,7 @@ class Config(object):
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')   
         self.dropout = 0.1                                          
         self.num_classes = 2                        
-        self.embed = 1024 
+        self.embed = 1792
         self.hidden_size = 1792                                     
         self.num_layers = 2                                          
         self.hidden_size2 = 64

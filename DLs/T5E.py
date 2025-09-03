@@ -1,8 +1,5 @@
 #import dependencies
 import os.path
-# # os.chdir("set working path here")
-# os.chdir("/hpcfs/fhome/yangchh/ai/data-repo_plm-finetune-eval/training data")
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F

@@ -1,8 +1,9 @@
+# TLCP-EPE: Two-Level Codon-Protein Expression Prediction Framework
 
-# TLCP-EPE
-## Project Introduction  
-**TLCP-EPE** This study proposes a TLCP-EPE framework, which is capable of qualitatively predicting protein expression levels in E. coli from the perspectives of proteins, and the joint perception of codons and proteins..
-![TLCP-EPE](https://github.com/ArtBioDesign/TLCP-EPE/blob/main/TLCP-EPE.PNG) 
+## 🧬 Project Introduction
+
+**TLCP-EPE** is a deep learning framework designed to **predict protein expression levels in *E. coli*** from both **codon usage** and **protein sequence** perspectives. The model integrates protein language models (PLMs) and codon-aware representations with a BiGRU-Attention-MLP architecture for accurate and interpretable predictions.  
+![TLCP-EPE](https://github.com/editSeqDesign/AutoPMD/blob/main/img/home.png) 
 
 ## Installation
 ### python packages
@@ -15,14 +16,49 @@ pip install -r requirements.txt
 
 ## Usage & Example
 
-**Input:**
-- **Step 1:** Download the TLCP-EPE checkpoint to the DLs/BiGRU-Attention-MLP directory and place the protein sequence or CDS sequence to be input into the data directory..
-- **Step 2:** Obtaining sequence representation based on PLMs
+- **Step 1:** 
+    Download the following model checkpoints and place them in the appropriate directories:
+    TLCP-EPE Main Model: 
+        ~/TLCP-EPE/DLs/BiGRU-Attention-MLP/TLCP-EPE-checkpoints/
+    Protein PLM (ProtT5) & Codon PLM (CALM) Fine-tuned Weights:
+        Place under ~/TLCP-EPE/data/saved_models_*/ as specified in config.py
+- **Step 2:** 
     ```shell
-        python FMs/do_embedding.py -p prot_t5_xl_uniref50  -pmt protein -dp data -fn test.csv 
+    T5_PLM_CONFIG = {
+            'pretrained_model': "Rostlab/prot_t5_xl_uniref50",
+            'pretrained_model_type': "protein",
+            'finetuned_params_path': "~/TLCP-EPE/data/saved_models_prot_t5_xl_uniref50_lora_fold_4/fold_4_finetuned_params.pth",
+            'data_path': "~/TLCP-EPE/data",
+            'batch_size': 4, 
+            'max_seq_length': None,
+            'file_name': "sample.csv",
+            'task': "do_finetune",
+            'device': torch.device('cuda' if torch.cuda.is_available() else 'cpu')   
+        }
+
+    CALM_PLM_CONFIG = {
+                'pretrained_model': "~/TLCP-EPE/DLs/pretrain_codon/huggingface_calm",
+                'pretrained_model_type': "codon",
+                'finetuned_params_path': "~/TLCP-EPE/data/saved_models_huggingface_calm_lora_fold_4/fold_4_finetuned_params.pth",
+                'data_path': "~/TLCP-EPE/data",
+                'batch_size': 16, 
+                'max_seq_length': None,
+                'file_name': 'sample.csv',
+                'task': 'do_finetune',
+                'device' : torch.device('cuda' if torch.cuda.is_available() else 'cpu')     
+            }
     ```
-- **Step 3:** Checkpoint prediction based on TLCP-EPE
+
+- **Step 2:** 基于TLCP-EPE的checkpoint预测
     ```shell
-        python DLs/test.py 
+        python inference.py \
+            --model_dir BiGRU-Attention-MLP/TLCP-EPE-checkpoints \
+            --model_name BiGRU_Attention_MLP \
+            --output_file test_results_with_variance.csv \
+            --batch_size 16 \
+            --device cuda \
+            --print_model_params    
     ```
-    
+- **Output:**
+    - `~/TLCP-EPE/test_results_with_variance.csv` 
+
