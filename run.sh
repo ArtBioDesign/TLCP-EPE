@@ -35,9 +35,9 @@ fi
     --input_file "${INPUT_FILE}" \
     --output_file "${OUTPUT_FILE}" \
     --dlm_checkpoints "${DATA_PATH}/dlm_checkpoints" \
-    --protein_PLM "${DATA_PATH}/plms/ProtT5" \
+    --protein_PLM "Rostlab/prot_t5_xl_uniref50" \
     --protein_PLM_finetune_params_path "${DATA_PATH}/plms/ProtT5/fold_4_finetuned_params.pth" \
-    --codon_PLM "${DATA_PATH}/plms/HCaLM" \
+    --codon_PLM "xiaoyangch/HCaLM" \
     --codon_PLM_finetune_params_path "${DATA_PATH}/plms/HCaLM/fold_4_finetuned_params.pth"
 
 echo "执行完成，结果保存在: ${OUTPUT_FILE}"
