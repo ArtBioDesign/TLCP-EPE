@@ -1,0 +1,15 @@
+*.swp
+package-lock.json
+__pycache__
+.pytest_cache
+.venv
+*.egg-info
+
+*.log
+data_preprocessing/temp
+data_preprocessing/genome_test
+test/data
+
+*__pycache__
+*.vscode
+*.ipynb_checkpoints
