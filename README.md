@@ -16,7 +16,7 @@ pip install -r requirements.txt
 
 ## Usage & Example
 - **Step 1:** 
-    Download the data/ folder from Zenodo (https://zenodo.org/uploads/17011129) and place it in the root directory of the project
+    Download the data and model weights from Zenodo (https://zenodo.org/uploads/17011129) and place them in the data directory of the project.
 
 - **Step 2:** 
     Open run.sh and adjust paths or parameters 
